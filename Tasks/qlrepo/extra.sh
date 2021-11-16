@@ -20,104 +20,39 @@
 
 #------ 设置区 ------#
 ## 1. 拉取仓库编号设置，默认 Faker2 仓库
-CollectedRepo=(4) ##示例：CollectedRepo=(2 4 6)
+CollectedRepo=(1) ##示例：CollectedRepo=(1 2 3)
 OtherRepo=() ##示例：OtherRepo=(1 3)
 ## 2. 是否安装依赖和安装依赖包的名称设置
 dependencies="no" ##yes为安装，no为不安装
 package_name="canvas png-js date-fns axios crypto-js ts-md5 tslib @types/node dotenv typescript fs require tslib"
 ## 3. Ninja 是否需要启动和更新设置
-Ninja="on" ##up为更新，on为启动，down为不运行
+Ninja="down" ##up为更新，on为启动，down为不运行
 
 
 #------ 编号区 ------#
 :<<\EOF
 一、集成仓库（Collected Repositories)
-2-JDHelloWorld
-3-he1pu
-4-Faker
-6-Aaron-lv
-7-yuannian1112
+1-buqian123（自用）
 二、其他仓库（Other Repositories）
-1-passerby-b
-2-curtinlv
-3-smiek2221
-4-cdle
-5-ZCY01
-6-whyour/hundun
-7-moposmall
-8-Ariszy (Zhiyi-N)
-9-photonmang
-10-jiulan
-12-star261
-13-Wenmoux
-14-Tsukasa007
+1-青蛙库（开卡）
 EOF
 
 
 #------ 代码区 ------#
 # 🌱拉取仓库
-CR2(){
-    ql repo https://github.com/shufflewzc/faker3.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp|Coupon|update" "^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_|^ZooFaker|^sign|ql|sentNotify"
+CR1(){
+    ql repo https://github.com/buqian123/faker3.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendnotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql"
 }
-CR3(){
-    ql repo https://github.com/he1pu/JDHelp.git "jd_|jx_|getJDCookie" "Coupon|update" "^jd[^_]|USER|^sign|^ZooFaker|utils"
-}
-CR4(){
-    ql repo https://github.com/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp|Coupon|update" "^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_|^ZooFaker|^sign|ql|sentNotify"
-}
-CR6(){
-    ql repo https://github.com/Aaron-lv/sync.git "jd_|jx_|getJDCookie" "activity|backUp|Coupon" "^jd[^_]|USER|utils" "jd_scripts"
-}
-CR7(){
-    ql repo https://github.com/yuannian1112/jd_scripts.git "jd_|jx_|getJDCookie" "activity|backUp" "^jd[^_]|USER|utils"
-}
+
 for i in ${CollectedRepo[@]}; do
     CR$i
     sleep 10
 done
 
 OR1(){
-    ql repo https://github.com/passerby-b/JDDJ.git "jddj_" "scf_test_event|jddj_fruit_code.js|jddj_getck.js|jd_|jddj_cookie"
+    ql repo https://github.com/smiek2121/scripts.git "jd_|gua_" "" "ZooFaker_Necklace.js|JDJRValidator_Pure.js|sign_graphics_validate.js|cleancart_activity.js|jdCookie.js|sendNotify.js"
 }
-OR2(){
-    ql repo https://github.com/curtinlv/JD-Script.git "jd_"
-}
-OR3(){
-    ql repo https://github.com/smiek2221/scripts.git "jd_|gua_" "" "^MovementFaker|^JDJRValidator|^ZooFaker|^sign"
-}
-OR4(){
-    ql repo https://github.com/cdle/xdd.git "jd_" "disposable|expired|jdc"
-}
-OR5(){
-    ql repo https://github.com/ZCY01/daily_scripts.git "jd_"
-}
-OR6(){
-    ql repo https://github.com/whyour/hundun.git "quanx" "tokens|caiyun|didi|donate|fold|Env"
-}
-OR7(){
-    ql repo https://github.com/moposmall/Script.git "Me"
-}
-OR8(){
-    ql repo https://github.com/Ariszy/Private-Script.git "JD"
-}
-OR9(){
-    ql repo https://github.com/photonmang/quantumultX.git "JDscripts"
-}
-OR10(){
-    ql repo https://github.com/jiulan/platypus.git "jd_|jx_" "" "overdue" "main"
-}
-OR11(){
-    ql repo https://github.com/panghu999/panghu.git "jd_"
-}
-OR12(){
-    ql repo https://github.com/star261/jd.git "jd_|star" "" "code" "main"
-}
-OR13(){
-    ql repo https://github.com/Wenmoux/scripts.git "other|jd" "" "" "wen"
-}
-OR14(){
-    ql repo https://github.com/Tsukasa007/my_script.git "jd_|jx_" "jdCookie|USER_AGENTS|sendNotify|backup" "" "master"
-}
+
 for i in ${OtherRepo[@]}; do
     OR$i
     sleep 5

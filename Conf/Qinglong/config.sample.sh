@@ -413,3 +413,34 @@ export NOTIFY_SKIP_LIST=""
 ## 1、清空购物车
 export JD_CART_REMOVE=""
 export JD_CART_REMOVESIZE=""
+
+
+
+
+export JOY_RUN_HELP_MYSELF="true"
+export HELP_JOYPARK="false"
+export earn30Pins="2328966047-800138"
+export coinToBeans="'京豆包"
+export blueCoin_Cc="true"
+
+
+export JD_TRY="true"
+export guaopencardRun24="true"
+export dyjHelpPins="2328966047-800138"
+export guaopencardRun24="true"
+export guaopencard24="true"
+export guaopencard_All="true"
+export guaopencard_addSku_All="true"
+export guaopencardRun_All="true"
+export guaopencard_draw="true"
+export guaopencard18="true"
+
+#京东试用
+export JD_TRY="true"
+export JD_TRY_TABID="1@3@4@5"
+export JD_TRY_TITLEFILTERS="教程@软件@英语@辅导@培训@表带@皮带@瑜伽垫@水饺@燕窝@树苗@集体课@现场课@看房游@口服液@灸贴@云南旅游@掌之友@金满缘@新兴港隆@拆机@品鉴@咨询@零基础@直播课@体验@网课@训练营@礼品袋@装修@快狐@疣@包皮@疏通@药@鱼胶@狗狗@幼犬@戒烟@尿垫@浪潮英信@专家@长高课@饲料@代办@美缝剂@体验@遮瑕@洗面奶@洁面乳@抗皱@膏@猫砂@购房@消食@积食@软胶囊@养生茶@驼背@房产@辅食@打印纸@财务管理@进销存@实战@生发液@早泄@阳痿@染发@补血@珍珠粉@玛咖@灰指甲@阿胶@讲堂@教材@补肾@精品课@开发@疹@疮@疥@软膏@真题@模拟题@专车接送@看海@看房@学员@投资@通关@名师@节课@酵素@滴眼液@全国流量@爱犬@课程@教学@教程@猫人@学车@你拍一@手机壳@宠物@会计@考试@职称@漱口水@胶原蛋白@蛋白粉@降血糖@降血脂@降血压@管理系统@收银系统@体检@检查@减肥@股票@丰胸@避孕套@大王卡@管理软件@博仑帅@月租@上网卡@不限流量@日租卡@甲醛检测@贴膜@美容器@桨叶@烫发@硒鼓@壁纸@添加剂@修复@祛疤@挂画@壁画@润滑油@机油@吸奶器@吸顶灯@冰箱底座@胶漆@小靓美@洁面扑@内衣@胸罩@文胸@卷尺@癣@脚气@阴道@生殖器@肛门@狐臭@老太太@妇女@私处@孕妇@卫生巾@卫生条@培训@女性内衣@女性内裤@女内裤@女内衣@女孩@三角裤@鱼饵@钓鱼@尿杯@安全座椅@网课@课程@辅导@网校@电商@车载充电器@网络课程@纸尿裤@英语@俄语@四级@六级@四六级@在线网络@在线@阴道炎@宫颈@糜烂@喷剂@飞机杯@手机膜@钢化膜@水凝膜@手机壳@钢化膜@猫粮@狗粮@墨盒@墨水@墨粉@震动棒@自慰器@延时@触媒"
+export JD_TRY_MINSUPPLYNUM="1"
+export JD_TRY_APPLYNUMFILTER="100000"
+export JD_TRY_APPLYINTERVAL="5255"
+export JD_TRY_MAXLENGTH="50"
+

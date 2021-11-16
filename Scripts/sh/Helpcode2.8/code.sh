@@ -14,15 +14,14 @@ DEL_COOKIE="0"
 ## 预设的仓库及默认调用仓库设置
 ## 将"repo=$repo1"改成repo=$repo2"或其他，以默认调用其他仓库脚本日志
 ## 也可自行搜索本脚本内的"name_js=("和"name_js_only",将"repo"改成"repo2"或其他，用以自由组合调用仓库的脚本日志
-repo1='shufflewzc_faker3'                          #预设的 Faker3仓库
-repo4='shufflewzc_faker2'                          #预设的 shufflewzc 仓库
-repo=$repo4                                        #默认调用 shufflewzc_faker2 仓库脚本日志
+repo1='buqian123_faker3'                          #预设的 buqian123_faker3仓库
+repo=$repo1                                        #默认调用 buqian123_faker3 仓库脚本日志
 
 ## 调试模式开关，默认是0，表示关闭；设置为1，表示开启
 DEBUG="1"
 
 ## 本脚本限制的最大线程数量
-proc_num="7"
+proc_num="17"
 
 ## 备份配置文件开关，默认是1，表示开启；设置为0，表示关闭。备份路径 /ql/config/bak/
 BACKUP="1"
@@ -36,7 +35,7 @@ CLEANBAK_DAYS="2"
 ## 填 0 使用“全部一致互助模板”，所有账户要助力的码全部一致
 ## 填 1 使用“均等机会互助模板”，所有账户获得助力次数一致
 ## 填 2 使用“随机顺序互助模板”，本套脚本内账号间随机顺序助力，每次生成的顺序都不一致。
-HelpType="1"
+HelpType=""
 
 ## 定义指定活动采用指定的互助模板。
 ## 设定值为 DiyHelpType="1" 表示启用功能；不填或填其他内容表示不开启功能。

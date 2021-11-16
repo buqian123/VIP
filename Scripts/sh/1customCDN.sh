@@ -26,8 +26,8 @@ else
     code=${code:-'abcd'}
     read -p "task_before.sh 操作（替换或下载选项为 y，不替换为 n，回车为替换）请输入：" Rbefore
     Rbefore=${Rbefore:-'y'}
-    read -p "bot 操作（跳过为 0，添加 task:ql bot 选项为 1，添加后设置并运行为 2，回车等同 1）请输入:" bot
-    bot=${bot:-'1'}
+    read -p "bot 操作（跳过为 0，添加 task:ql bot 选项为 1，添加后设置并运行为 2，回车等同 0）请输入:" bot
+    bot=${bot:-'0'}
     read -p "config.sample.sh 操作（跳过为 0，添加 task:自动更新模板 选项为 1，添加后运行一次为 2，回车等同 2）请输入：" sample
     sample=${sample:-'2'}
 fi
@@ -46,7 +46,7 @@ check_url() {
 
 # 获取有效 config.sh 链接
 get_valid_config() {
-    config_list=(https://raw.githubusercontents.com/shufflewzc/VIP/main/Conf/Qinglong/config.sample.sh https://raw.sevencdn.com/shufflewzc/VIP/main/Conf/Qinglong/config.sample.sh https://ghproxy.com/https://raw.githubusercontent.com/shufflewzc/VIP/main/Conf/Qinglong/config.sample.sh)
+    config_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://raw.sevencdn.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh)
     for url in ${config_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -79,7 +79,7 @@ fi
 
 # 获取有效 extra.sh 链接
 get_valid_extra() {
-    extra_list=(https://raw.githubusercontents.com/shufflewzc/VIP/main/Tasks/qlrepo/extra.sh https://raw.sevencdn.com/shufflewzc/VIP/main/Tasks/qlrepo/extra.sh https://ghproxy.com/https://raw.githubusercontent.com/shufflewzc/VIP/main/Tasks/qlrepo/extra.sh)
+    extra_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://raw.sevencdn.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh)
     for url in ${extra_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -107,12 +107,12 @@ dl_extra_shell() {
 }
 # extra.sh 设置区设置
 set_default_extra() {   
-    echo -e "一、集成仓库 Shufflewzc-Faker2"
-    read -p "直接回车拉取Faker2仓库，输入2回车拉取Faker3纯净仓库" CollectedRepo
-    echo -e "二、其他仓库（Other Repositories）\n1-passerby-b\n2-curtinlv\n3-smiek2221\n4-cdle\n5-ZCY01\n6-whyour/hundun\n7-moposmall\n8-Ariszy (Zhiyi-N)\n9-photonmang\n10-jiulan\n12-star261\n13-Wenmoux\n14-Tsukasa007"
+    echo -e "一、集成仓库 buqian123-Faker3"
+    read -p "直接回车拉取buqian123-Faker3纯净仓库" CollectedRepo
+    echo -e "二、其他仓库（Other Repositories）\n1-青蛙库（开卡）"
     read -p "输入您想拉取其他仓库编号(回车默认不拉取)，拉取多个请用空格隔开:" OtherRepo 
-    CollectedRepo=${CollectedRepo:-"4"}
-    sed -i "s/CollectedRepo=(4)/CollectedRepo=(${CollectedRepo})/g" $extra_shell_path
+    CollectedRepo=${CollectedRepo:-"1"}
+    sed -i "s/CollectedRepo=(1)/CollectedRepo=(${CollectedRepo})/g" $extra_shell_path
     sed -i "s/OtherRepo=()/OtherRepo=(${OtherRepo})/g" $extra_shell_path
     echo -e "Ninja\n###（1）默认启动并自动更新\n###（2）！！！未修改容器映射的请勿运行，否则会出现青龙打不开或者设备死机等不良后果，映射参考 https://github.com/MoonBegonia/ninja#%E5%AE%B9%E5%99%A8%E5%86%85"
     read -p "Ninja="on" ##up为更新，on为启动，down为不运行，请输入您的设置（默认运行） up/on/down：" Ninja
@@ -156,7 +156,7 @@ fi
 
 # 获取有效 code.sh 链接
 get_valid_code() {
-    code_list=(https://raw.githubusercontents.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://ghproxy.com/https://raw.githubusercontents.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/code.sh)
+    code_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh)
     for url in ${code_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -184,9 +184,9 @@ dl_code_shell() {
 }
 # code.sh 预设仓库及默认调用仓库设置
 set_default_code() {
-    echo -e "## 将\"repo=\$repo1\"改成\"repo=\$repo2\"或其他，以默认调用其他仓库脚本日志\nrepo1='panghu999_jd_scripts' #预设的 panghu999 仓库\nrepo2='JDHelloWorld_jd_scripts' #预设的 JDHelloWorld 仓库\nrepo3='he1pu_JDHelp' #预设的 he1pu 仓库\nrepo4='shufflewzc_faker2' #预设的 shufflewzc 仓库\nrepo6='Aaron-lv_sync_jd_scripts' #预设的 Aaron-lv 仓库\nrepoA='yuannian1112_jd_scripts' #预设的 yuannian1112 仓库\nrepo=\$repo1 #默认调用 panghu999 仓库脚本日志"
-    read -p "回车直接配置Faker2仓库内部助力，输入1回车则配置Faker3纯净仓库内部助力:" repoNum
-    repoNum=${repoNum:-'4'}
+    echo -e "## 将\"repo=\$repo1\"改成\"repo=\$repo2\"或其他，以默认调用其他仓库脚本日志\nrepo1='panghu999_jd_scripts' #预设的 panghu999 仓库\nrepo2='JDHelloWorld_jd_scripts' #预设的 JDHelloWorld 仓库\nrepo3='he1pu_JDHelp' #预设的 he1pu 仓库\nrepo4='buqian123_faker2' #预设的 buqian123 仓库\nrepo6='Aaron-lv_sync_jd_scripts' #预设的 Aaron-lv 仓库\nrepoA='yuannian1112_jd_scripts' #预设的 yuannian1112 仓库\nrepo=\$repo1 #默认调用 panghu999 仓库脚本日志"
+    read -p "回车直接配置buqian123-Faker3仓库内部助力:" repoNum
+    repoNum=${repoNum:-'1'}
     sed -i "s/repo=\$repo[0-9]/repo=\$repo${repoNum}/g" $code_shell_path
     if [ "${repoNum}" = 'A' ]; then
         sed -i "/^repo7=/a\repoA='yuannian1112_jd_scripts'" $code_shell_path
@@ -222,7 +222,7 @@ fi
 
 # 获取有效 task_before.sh 链接
 get_valid_task_before() {
-    task_before_list=(https://raw.githubusercontents.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://raw.sevencdn.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://ghproxy.com/https://raw.githubusercontents.com/shufflewzc/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh)
+    task_before_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh)
     for url in ${task_before_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -307,7 +307,7 @@ add_curl_sample() {
         echo "开始添加 task:curl config.sample.sh"
         # 获取token
         token=$(cat /ql/config/auth.json | jq --raw-output .token)
-        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://raw.githubusercontents.com/shufflewzc/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1627380635389'
+        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1627380635389'
     fi
 }
 run_curl_sample() {
