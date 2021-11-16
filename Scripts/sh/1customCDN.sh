@@ -63,6 +63,7 @@ dl_config_shell() {
     fi
     curl -sL --connect-timeout 3 $valid_url > $config_shell_path
     cp $config_shell_path $dir_config/config.sh
+	sleep 5
     # 判断是否下载成功
     config_size=$(ls -l $config_shell_path | awk '{print $5}')
     if (( $(echo "${config_size} < 100" | bc -l) )); then
