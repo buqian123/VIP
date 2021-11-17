@@ -172,7 +172,7 @@ if [ "$pannel" = "2" ]; then
     ENABLE_WEB_PANNEL_ENV=""
 fi
 
-inp "是否安装 Ninja：\n1) 安装\n2) 不安装[默认]"
+inp "是否安装 Ninja：\n1) 安装[默认]\n2) 不安装"
 opt
 read Ninja
 if [ "$Ninja" = "2" ]; then
