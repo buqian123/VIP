@@ -172,10 +172,10 @@ if [ "$pannel" = "2" ]; then
     ENABLE_WEB_PANNEL_ENV=""
 fi
 
-inp "是否安装 Ninja：\n1) 安装[默认]\n2) 不安装"
+inp "是否安装 Ninja：\n1) 安装\n2) 不安装[默认]"
 opt
 read Ninja
-if [ "$Ninja" = "2" ]; then
+if [ "$Ninja" = "1" ]; then
     INSTALL_NINJA=false
     MAPPING_NINJA_PORT=""
 fi
@@ -333,7 +333,7 @@ fi
 
 # 防止 CPU 占用过高导致死机
 echo -e "-------- 机器累了，休息 20s，趁机去操作一下吧 --------"
-sleep 20
+sleep 5
 
 # 显示 auth.json
 inp "是否显示被修改的密码：\n1) 显示[默认]\n2) 不显示"
