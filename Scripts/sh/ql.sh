@@ -175,7 +175,7 @@ fi
 inp "是否安装 Ninja：\n1) 安装\n2) 不安装[默认]"
 opt
 read Ninja
-if [ "$Ninja" = "1" ]; then
+if [ "$Ninja" = "2" ]; then
     INSTALL_NINJA=false
     MAPPING_NINJA_PORT=""
 fi
