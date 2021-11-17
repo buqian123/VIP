@@ -133,7 +133,7 @@ add_ql_extra() {
 # 运行一次 ql extra
 run_ql_extra() {
     ql extra
-    sleep 5
+    
 }
 if [ "${all}" = 1 ]; then
     get_valid_extra && dl_extra_shell && set_default_extra && add_ql_extra && run_ql_extra
@@ -157,7 +157,7 @@ fi
 
 # 获取有效 code.sh 链接
 get_valid_code() {
-    code_list=(https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh )
+    code_list=(https://ghproxy.com/https://github.com/buqian123/VIP/blob/main/Scripts/sh/Helpcode2.8/code.sh https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh )
     for url in ${code_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -189,8 +189,8 @@ set_default_code() {
     read -p "回车直接配置buqian123-Faker3仓库内部助力:" repoNum
     repoNum=${repoNum:-'1'}
     sed -i "s/repo=\$repo[0-9]/repo=\$repo${repoNum}/g" $code_shell_path
-    if [ "${repoNum}" = 'A' ]; then
-        sed -i "/^repo7=/a\repoA='yuannian1112_jd_scripts'" $code_shell_path
+    if [ "${repoNum}" = '2' ]; then
+        sed -i "/^repo7=/a\repoA='buqian123-faker3'" $code_shell_path
     fi
 }
 # 将 task code.sh 添加到定时任务
