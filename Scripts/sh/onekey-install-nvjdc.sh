@@ -249,14 +249,14 @@ fi
 
 #拉取nvjdc镜像
 echo -e  "${green}开始拉取nvjdc镜像文件，nvjdc镜像比较大，请耐心等待${plain}"
-docker pull nolanhzy/nvjdc:${version1}
+docker pull buqian/nvjdc:${version1}
 
 
 #创建并启动nvjdc容器
 echo -e "${green}开始创建nvjdc容器${plain}"
 docker run   --name nvjdc -p ${jdcport}:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \
 -v "$(pwd)"/.local-chromium:/app/.local-chromium  \
--it --privileged=true  nolanhzy/nvjdc:${version1}
+-it --privileged=true  buqian/nvjdc:${version1}
 docker update --restart=always nvjdc
 
 baseip=$(curl -s ipip.ooo)  > /dev/null
@@ -289,10 +289,10 @@ fi
 fi
 baseip=$(curl -s ipip.ooo)  > /dev/null
 docker rm -f nvjdc
-docker pull nolanhzy/nvjdc:latest
+docker pull buqian/nvjdc:latest
 docker run   --name nvjdc -p ${portinfo}:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \
 -v "$(pwd)"/.local-chromium:/app/.local-chromium  \
--it --privileged=true  nolanhzy/nvjdc:latest
+-it --privileged=true  buqian/nvjdc:latest
 docker update --restart=always nvjdc
 echo -e "${green}nvjdc更新完毕，脚本自动退出。${plain}"
 exit 0
