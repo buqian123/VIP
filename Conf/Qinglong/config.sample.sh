@@ -427,14 +427,25 @@ export blueCoin_Cc="true"
 export JD_TRY="true"
 export guaopencardRun24="true"
 export dyjHelpPins="2328966047-800138"
-export guaopencardRun24="true"
-export guaopencard24="true"
+
+## 青蛙万能变量
 export guaopencard_All="true"
 export guaopencard_addSku_All="true"
 export guaopencardRun_All="true"
 export guaopencard_draw="true"
-export guaopencard18="true"
+export guaunknownTask_addSku_All="true"
+## 19-38、预备
+j=60
+for (( i = 11; i <= j; i++ )); do
+    export guaopencard$i="true"
+    export guaopencardRun$i="true"
+    export guaopencard_addSku$i="true"
+    export guaopencard_draw$i="true"
+done
 
+
+
+export guaopencard_rewardBean="1,2,3" # 京豆奖励判断 | 1=邀请 2=开卡 3=关注  | 填1,2,3
 #京东试用
 export JD_TRY="true"
 export JD_TRY_TABID="1@3@4@5"
