@@ -33,6 +33,7 @@ Ninja="down" ##up为更新，on为启动，down为不运行
 :<<\EOF
 一、集成仓库（Collected Repositories)
 1-buqian123（自用）
+2-buqian123（自用）
 二、其他仓库（Other Repositories）
 1-青蛙库（开卡）
 EOF
@@ -41,6 +42,9 @@ EOF
 #------ 代码区 ------#
 # 🌱拉取仓库
 CR1(){
+    ql repo https://ghproxy.com/https://github.com/Yun-City/City.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendnotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql"
+}
+CR2(){
     ql repo https://github.com/buqian123/faker3.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendnotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql"
 }
 

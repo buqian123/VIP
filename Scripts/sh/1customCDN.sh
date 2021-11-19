@@ -46,7 +46,7 @@ check_url() {
 
 # 获取有效 config.sh 链接
 get_valid_config() {
-    config_list=(https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://raw.sevencdn.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh)
+    config_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://raw.sevencdn.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh)
     for url in ${config_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -63,7 +63,6 @@ dl_config_shell() {
     fi
     curl -sL --connect-timeout 3 $valid_url > $config_shell_path
     cp $config_shell_path $dir_config/config.sh
-	sleep 5
     # 判断是否下载成功
     config_size=$(ls -l $config_shell_path | awk '{print $5}')
     if (( $(echo "${config_size} < 100" | bc -l) )); then
@@ -80,7 +79,7 @@ fi
 
 # 获取有效 extra.sh 链接
 get_valid_extra() {
-    extra_list=(https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://raw.githubusercontents.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://raw.sevencdn.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh)
+    extra_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://raw.sevencdn.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh https://ghproxy.com/https://raw.githubusercontent.com/buqian123/VIP/main/Tasks/qlrepo/extra.sh)
     for url in ${extra_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -108,9 +107,9 @@ dl_extra_shell() {
 }
 # extra.sh 设置区设置
 set_default_extra() {   
-    echo -e "一、集成仓库 buqian123-Faker3"
-    read -p "直接回车拉取buqian123-Faker3纯净仓库" CollectedRepo
-    echo -e "二、其他仓库（Other Repositories）\n1-青蛙库（开卡）"
+    echo -e "一、集成仓库 City仓库+buqian123仓库"
+    read -p "直接回车拉取City仓库，输入2回车拉取buqian123仓库" CollectedRepo
+    echo -e "二、其他仓库（Other Repositories）\n1-青蛙（开卡）"
     read -p "输入您想拉取其他仓库编号(回车默认不拉取)，拉取多个请用空格隔开:" OtherRepo 
     CollectedRepo=${CollectedRepo:-"1"}
     sed -i "s/CollectedRepo=(1)/CollectedRepo=(${CollectedRepo})/g" $extra_shell_path
@@ -133,7 +132,7 @@ add_ql_extra() {
 # 运行一次 ql extra
 run_ql_extra() {
     ql extra
-    
+    sleep 5
 }
 if [ "${all}" = 1 ]; then
     get_valid_extra && dl_extra_shell && set_default_extra && add_ql_extra && run_ql_extra
@@ -157,7 +156,7 @@ fi
 
 # 获取有效 code.sh 链接
 get_valid_code() {
-    code_list=(https://ghproxy.com/https://github.com/buqian123/VIP/blob/main/Scripts/sh/Helpcode2.8/code.sh https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh )
+    code_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/code.sh)
     for url in ${code_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -185,12 +184,12 @@ dl_code_shell() {
 }
 # code.sh 预设仓库及默认调用仓库设置
 set_default_code() {
-    echo -e "## 将\"repo=\$repo1\"改成\"repo=\$repo2\"或其他，以默认调用其他仓库脚本日志\nrepo1='buqian123-faker3' #预设的 buqian123-Faker3 仓库\nrepo=\$repo1 #默认调用 buqian123-Faker3 仓库脚本日志"
-    read -p "回车直接配置buqian123-Faker3仓库内部助力:" repoNum
+    echo -e "## 将\"repo=\$repo1\"改成\"repo=\$repo2\"或其他，以默认调用其他仓库脚本日志\nrepo1='Yun-City_City' #预设的 Yun-City_City 仓库\nrepo2='buqian123_faker3' #预设的 buqian123_faker3 仓库\nrepo=\$repo1 #默认调用 Yun-City_City 仓库脚本日志"
+    read -p "回车直接配置Yun-City_City仓库内部助力，输入2回车则配置Faker3纯净仓库内部助力:" repoNum
     repoNum=${repoNum:-'1'}
     sed -i "s/repo=\$repo[0-9]/repo=\$repo${repoNum}/g" $code_shell_path
-    if [ "${repoNum}" = '2' ]; then
-        sed -i "/^repo7=/a\repoA='buqian123-faker3'" $code_shell_path
+    if [ "${repoNum}" = 'A' ]; then
+        sed -i "/^repo7=/a\repoA='Yun-City_City'" $code_shell_path
     fi
 }
 # 将 task code.sh 添加到定时任务
@@ -223,7 +222,7 @@ fi
 
 # 获取有效 task_before.sh 链接
 get_valid_task_before() {
-    task_before_list=(https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh)
+    task_before_list=(https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://raw.sevencdn.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Scripts/sh/Helpcode2.8/task_before.sh)
     for url in ${task_before_list[@]}; do
         check_url $url
         if [ $? = 0 ]; then
@@ -308,7 +307,7 @@ add_curl_sample() {
         echo "开始添加 task:curl config.sample.sh"
         # 获取token
         token=$(cat /ql/config/auth.json | jq --raw-output .token)
-        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://ghproxy.com/https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1627380635389'
+        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://raw.githubusercontents.com/buqian123/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1627380635389'
     fi
 }
 run_curl_sample() {
